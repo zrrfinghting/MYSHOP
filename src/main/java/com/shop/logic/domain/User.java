@@ -1,5 +1,7 @@
 package com.shop.logic.domain;
 
+import com.shop.logic.util.DateUtil;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,7 +28,7 @@ public class User {
     private String address;//用户地址
 
     @Column(name = "STATE")
-    private String state;//用户状态0--未审核，1--审核通过，2--审核不通过
+    private int state;//用户状态0--未审核，1--审核通过，2--审核不通过
 
     @Column(name = "USERDESC")
     private String userDesc;//用户备注
@@ -64,11 +66,11 @@ public class User {
         this.address = address;
     }
 
-    public String getState() {
+    public int getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(int state) {
         this.state = state;
     }
 
@@ -80,16 +82,16 @@ public class User {
         this.userDesc = userDesc;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getCreateTime() {
+        return DateUtil.formatDate(DateUtil.FORMAT2,createTime);
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public String getUpdateTime() {
+        return DateUtil.formatDate(DateUtil.FORMAT2,updateTime);
     }
 
     public void setUpdateTime(Date updateTime) {
