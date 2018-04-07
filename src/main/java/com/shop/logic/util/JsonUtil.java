@@ -101,7 +101,7 @@ public class JsonUtil {
      * @param jsonStr
      * @return 如果都能正确进行赋值就返回赋值后的对象，否则就返回null
      */
-    public static Object jsonToBean(Object obj,String jsonStr){
+    public static Object jsonToBean(Object obj,Object jsonStr){
         try {
             JSONObject json = JSONObject.fromObject(jsonStr);
             if (obj!=null){

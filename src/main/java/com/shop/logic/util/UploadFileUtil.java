@@ -19,7 +19,7 @@ public class UploadFileUtil {
 
     public static Properties propers = ReadProperties.getPropes("/application.properties");//加载properties文件
     public static String uploadFilePath = propers.getProperty("uploadFilePath");//文件保存路径
-    public static int uploadFileSize = 5 * 1024 * 1024;//文件大小设置
+    public static int uploadFileSize = Integer.parseInt(propers.getProperty("uploadFileSize"));//文件大小设置
 
     public static String singleFileUpload(MultipartFile file) {
         String fileName;

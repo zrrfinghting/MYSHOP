@@ -21,6 +21,9 @@ public class User {
     @Column(name = "USERCODE")
     private String userCode;//用户账号，使用手机号码
 
+    @Column(name = "PASSWORD")
+    private String password;//用户名密码
+
     @Column(name = "USERNAME")
     private String userName;//用户名称
 
@@ -28,7 +31,7 @@ public class User {
     private String address;//用户地址
 
     @Column(name = "STATE")
-    private int state;//用户状态0--未审核，1--审核通过，2--审核不通过
+    private int state;//用户状态0--未审核，1--审核通过，2--审核不通过,3--账号停用
 
     @Column(name = "USERDESC")
     private String userDesc;//用户备注
@@ -48,6 +51,14 @@ public class User {
 
     public void setUserCode(String userCode) {
         this.userCode = userCode;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUserName() {

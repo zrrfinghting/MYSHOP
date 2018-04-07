@@ -1,6 +1,14 @@
 package com.shop.logic.util;
 
 
+import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.IAcsClient;
+import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
+import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
+import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.profile.DefaultProfile;
+import com.aliyuncs.profile.IClientProfile;
+import com.shop.logic.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -12,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class SendMessage {
 
-   /* @Autowired
+    @Autowired
     private UserDao userDao;
     static final String product = "Dysmsapi";//产品名称:云通信短信API产品,开发者无需替换
     static final String domain = "dysmsapi.aliyuncs.com";//产品域名,开发者无需替换
@@ -45,7 +53,7 @@ public class SendMessage {
         SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);  //hint 此处可能会抛出异常，注意catch
         return sendSmsResponse;
     }
-*/
+
 
    /* public static QuerySendDetailsResponse querySendDetails(String bizId) throws ClientException {
 
