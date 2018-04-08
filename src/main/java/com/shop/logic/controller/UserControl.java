@@ -62,7 +62,7 @@ public class UserControl {
 
     @RequestMapping(value = "editUser", method = RequestMethod.POST)
     @ApiOperation(value = "修改用户信息", notes = "修改用户信息")
-    public String editUser(@RequestParam Object json){
+    public String editUser(@RequestBody Object json){
         try {
             JSONObject jsonObject = JSONObject.fromObject(json);
             jsonObject.remove("password");//防止修改用户信息的时候也将密码修改了
@@ -135,7 +135,7 @@ public class UserControl {
         }
     }
 
-    @RequestMapping(value = "getPageByKeyword", method = RequestMethod.GET)
+    @RequestMapping(value = "getByPage", method = RequestMethod.GET)
     @ApiOperation(value = "分页获取用户的信息可以根据keyword进行模糊查询", notes = "分页获取用户的信息")
     public String getPageByKeyword(
             @RequestParam String keyword,
