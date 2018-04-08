@@ -145,14 +145,46 @@ public class CagagoryControl {
     public String getTrees(){
         try {
             List<Catagory> catagories = catagoryDao.findAll();//所有分类
-            List<Catagory> roots = new ArrayList<>();
-            List<Catagory> list = new ArrayList<>();
+            List<Catagory> roots = new ArrayList<>();//顶级分类（parentid为空）
+            List<Catagory> list = new ArrayList<>();//父分类id不为空的分类
             List<Object> trees = new ArrayList<>();
 
-            return "";
+            for (Catagory catagory:catagories){
+                if ("".equals(catagory.getParentId()) || catagory.getParentId()!=null){
+                    roots.add(catagory);
+                }else {
+                    list.add(catagory);
+                }
+            }
+            for (Catagory catagory:roots){
+                JSONObject jsonObject = JSONObject.fromObject(catagory);
+                String children = getChildren(list,catagory.getId());//递归获取所有子节点
+                jsonObject.put("children",children);
+                trees.add(jsonObject);
+            }
+            return JsonUtil.fromArray(trees);
         }catch (Exception e){
             e.printStackTrace();
             return JsonUtil.returnStr(JsonUtil.FAIL,"获取失败");
         }
+    }
+
+    /**
+     * 递归分类树
+     * @param list  所有分类（除了顶级分类）
+     * @param rootId 顶级分类的id
+     * @return
+     */
+    public String getChildren(List<Catagory> list,String rootId){
+        List<Object> result = new ArrayList<>();
+        for (Catagory catagory:list){
+            JSONObject jsonObject = JSONObject.fromObject(catagory);//将一个节点对象转化为json字符串
+            if (catagory.getParentId().equals(rootId)){
+                String children = getChildren(list, catagory.getId());//递归
+                jsonObject.put("children",children);
+                result.add(jsonObject);
+            }
+        }
+        return JsonUtil.fromArray(result);
     }
 }

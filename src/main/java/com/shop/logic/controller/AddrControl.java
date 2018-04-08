@@ -8,7 +8,6 @@ import com.shop.logic.domain.Address;
 import com.shop.logic.domain.Log;
 import com.shop.logic.domain.UserAddr;
 import com.shop.logic.util.JsonUtil;
-import com.sun.org.apache.regexp.internal.RE;
 import io.swagger.annotations.ApiOperation;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
