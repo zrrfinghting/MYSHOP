@@ -15,6 +15,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
@@ -26,6 +27,8 @@ import java.util.concurrent.TimeUnit;
  * @Date:created in :14:59 2018/4/6
  * @Modified By:
  */
+@RestController
+@RequestMapping("/util")
 public class UtilControl {
     @Autowired
     private RedisTemplate redisTemplate;

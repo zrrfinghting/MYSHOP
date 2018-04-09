@@ -123,7 +123,7 @@ public class CagagoryControl {
             @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
             @RequestParam(value = "pageSize", defaultValue = "15") Integer pageSize){
         try {
-            Pageable pageable = new PageRequest(pageNum - 1, pageSize, new Sort(Sort.Direction.DESC, "createDate"));
+            Pageable pageable = new PageRequest(pageNum - 1, pageSize, new Sort(Sort.Direction.DESC, "createTime"));
             Page<Catagory> catagories = catagoryDao.findAllByKeyword(keyword,pageable);
             LinkedList<Catagory> list = new LinkedList<>();
             for (Catagory catagory:catagories){
@@ -150,7 +150,7 @@ public class CagagoryControl {
             List<Object> trees = new ArrayList<>();
 
             for (Catagory catagory:catagories){
-                if ("".equals(catagory.getParentId()) || catagory.getParentId()!=null){
+                if ("".equals(catagory.getParentId()) || catagory.getParentId()==null){
                     roots.add(catagory);
                 }else {
                     list.add(catagory);

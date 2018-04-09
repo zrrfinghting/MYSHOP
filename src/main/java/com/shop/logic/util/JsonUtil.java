@@ -129,6 +129,14 @@ public class JsonUtil {
                          method= obj.getClass().getMethod(paramName,int.class);
                         method.invoke(obj,json.get(key));
                     }
+                    if ("long".equals(type)){
+                        method= obj.getClass().getMethod(paramName,long.class);
+                        method.invoke(obj,json.get(key));
+                    }
+                    if ("double".equals(type)){
+                        method= obj.getClass().getMethod(paramName,double.class);
+                        method.invoke(obj,json.get(key));
+                    }
                     if ("java.lang.String".equals(type)){
                         method= obj.getClass().getMethod(paramName,String.class);
                         method.invoke(obj,json.get(key));

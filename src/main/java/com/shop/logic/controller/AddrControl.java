@@ -14,10 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Date;
 
 /**
@@ -26,7 +24,7 @@ import java.util.Date;
  * @Date:created in :0:11 2018/4/7
  * @Modified By:
  */
-@Controller
+@RestController
 @RequestMapping("/address")
 public class AddrControl {
     @Autowired
