@@ -43,7 +43,9 @@ public interface OrderDao extends CrudRepository<Order,Integer>{
     public long countAllByUserCode(String userCode);
 
 
-    /**
+   /**
+     * 指定用户
+     *
      * 分页获取指定状态的订单
      * @param userCode
      * @param state
@@ -52,6 +54,30 @@ public interface OrderDao extends CrudRepository<Order,Integer>{
     public Page<Order> findAllByUserCodeAndState(String userCode,int state,Pageable pageable);
     public long countAllByUserCodeAndState(String userCode,int state);
 
+    /**
+     * 所有用户
+     *
+     * @param state
+     * @return
+     */
+    public Page<Order> findAllByState(int state,Pageable pageable);
+    public long countAllByState(int state);
 
+
+    /**
+     * 所有用户
+     *
+     * 订单产生时间区间查找
+     *
+     * @param startTime
+     * @param endTime
+     * @param state
+     * @return
+     */
+    @Query("select t from Order t where t.state=?3 and (t.createTime between ?1 and ?2)")
+    public Page<Order> findAllByTime(String startTime,String endTime,int state,Pageable pageable);
+
+    @Query("select count (*) from Order t where t.state=?3 and (t.createTime between ?1 and ?2)")
+    public long countAllByTime(String startTime,String endTime,int state);
 
 }

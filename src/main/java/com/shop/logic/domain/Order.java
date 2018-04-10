@@ -20,13 +20,12 @@ import java.util.Date;
 public class Order {
 
     // 操作类型常量
-    public static final int STOP = 0;//停用
-    public static final int START =1;//启用
-    public static final int ADD = 2;//新增
-    public static final int UPDATE = 3;//修改
-    public static final int DELETE = 4;//删除
-    public static final int LOGIN = 5;//登录
-    public static final int FILEUPlOAD = 6;//文件上传
+    public static final int CANCEL = 1;//取消
+    public static final int WaitGet =2;//待收货
+    public static final int PRINT = 3;//已经打印
+    public static final int FINISH = 4;//完成
+    public static final int ALL = 5;//所有订单
+    public static final int DELETE = 6;//删除
 
     @Id
     @Column(name = "ID")

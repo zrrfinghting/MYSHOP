@@ -18,6 +18,9 @@ import java.util.Date;
 public class ShopCart {
 
     @Id
+    @Column(name = "ID")
+    private String id;
+
     @Column(name = "GOODSID")
     private String goodsId;//商品id
 
@@ -35,6 +38,15 @@ public class ShopCart {
 
 
     //setter 和getter方法
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getGoodsId() {
         return goodsId;
