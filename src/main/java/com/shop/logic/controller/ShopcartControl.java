@@ -77,7 +77,7 @@ public class ShopcartControl {
             return JsonUtil.returnStr(JsonUtil.SUCCESS,"修改成功");
         }catch (Exception e){
             e.printStackTrace();
-            return JsonUtil.returnStr(JsonUtil.SUCCESS,"修改失败");
+            return JsonUtil.returnStr(JsonUtil.SUCCESS,"修改购物车失败");
         }
     }
 
